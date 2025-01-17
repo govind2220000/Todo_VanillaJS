@@ -5,7 +5,7 @@ const todoList = document.querySelector("#todo-list");
 let tasks = localStorage.getItem("tasks")
   ? JSON.parse(localStorage.getItem("tasks"))
   : [];
-//console.log(tasks);
+console.log(tasks);
 
 tasks.forEach((task) => renderTasks(task));
 
@@ -20,8 +20,8 @@ btn.addEventListener("click", function () {
 function saveTasks(task) {
   let taskObj = { id: Date.now(), task: task, isCompleted: false };
   tasks.push(taskObj);
-  renderTasks(taskObj);
   updateToLocalStorage();
+  renderTasks(taskObj);
 }
 
 function renderTasks(task) {
